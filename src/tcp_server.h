@@ -18,8 +18,12 @@
 #define handle_error(msg) \
     do { fprintf(stderr, msg); exit(EXIT_FAILURE); } while (0)
 
-void* tcp_routine(void* arg);
-//void* tcp_fullc(void* arg);
+struct thread_routine_info {
+	void* memptr;
+	int offset;
+};
 
+void* tcp_routine(void* arg);
+void* handle_mem_cell(void* arg);
 
 #endif
