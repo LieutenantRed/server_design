@@ -89,6 +89,18 @@ int main(int argc, char** argv) {
 				printf("%s", buf);
 			}
 		}
+		if (t == UDP) {
+			while(1) {
+				memset(&buf, 0, BUF_SIZE * sizeof(char));
+				fgets((void*)buf, BUF_SIZE, stdin);
+				sendto(sockd, buf, BUF_SIZE, 0, (struct sockaddr*)&host_addr, sizeof(host_addr));
+				if (strcmp(buf, "exit\n") == 0) {
+					break;
+				}
+				recv(sockd, buf, BUF_SIZE, 0);
+				printf("%s", buf);
+			}
+		}
 		close(sockd);
 	} else {
 		//TODO
