@@ -63,13 +63,13 @@ int main(int argc, char** argv) {
 		handle_error("cannot create msgque");
 	
 
-	struct thread_routine_info info;
+	struct udpthread_routine_info info;
 	info.sockd = sockd;
 	info.msgid = msgid;
 
 	pthread_t thread;
 	for (int i = 0; i < CLIENTS; ++i) {
-		if (pthread_create(&thread, NULL, &udp_routine, &info) != 0)
+		if (pthread_create(&thread, NULL, &msg_udp_routine, &info) != 0)
 			handle_error("invalid thread");
 	}
 

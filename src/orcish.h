@@ -7,5 +7,4 @@
 
 void into_orcish(char* src);
 
-
 #endif

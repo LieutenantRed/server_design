@@ -1,6 +1,7 @@
 #ifndef __UDP_SERVER_H__
 #define __UDP_SERVER_H__
 
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -20,7 +21,7 @@
 
 #define UDP_REQUEST 444
 
-struct thread_routine_info {
+struct udpthread_routine_info {
 	int sockd;
 	int msgid;
 };
@@ -30,7 +31,7 @@ struct msg {
 	struct sockaddr_in from;
 	char msg[BUF_SIZE]; 	
 };
-
+void* msg_udp_routine(void* arg);
 void* udp_routine(void* arg);
 
 #endif
