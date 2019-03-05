@@ -4,10 +4,10 @@
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <sys/msg.h>
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <pthread.h>
+
 #include "orcish.h"
 #include "tcp_server.h"
 
